@@ -40,7 +40,7 @@ class NetatmoHue:
         # use the refresh_token to get the new access_token
         if self.expiration < time.time():
         # Make Strava auth API call with current refresh token
-            print('token refreshed')
+            #print('token refreshed')
             response = requests.post(
                                 url = self._AUTH_REFREH,
                                 data = {
@@ -94,7 +94,7 @@ class NetatmoHue:
                     if 'error' in key:
                         error_type = line['error']['type']
                         if error_type == 101:
-                            print('The link button has not been pressed in the last 30 seconds. Please press link button and run this command again.')
+                            print('The link button has not been pressed in the last 30 seconds. Please press link button and wait 10 seconds for this code to retreive the username.')
                             time.sleep(10)
                         if error_type == 7:
                             print('Unknown username')
@@ -107,8 +107,8 @@ class NetatmoHue:
                     with open('hue_config.json') as f:
                         data = json.load(f)
                         self.usernameHue = data[self.ip]['username']
-                        print(data)  
-                        return self.usernameHue
+                        #print(data)  
+                        #return data[self.ip]['username']
                       
                 except FileNotFoundError:
                     print('File Not Found')
@@ -117,8 +117,8 @@ class NetatmoHue:
             else:
                 self.connectToBridge(self.ip)
                 self.get_usernameHue()
-        else:
-            return self.usernameHue
+        
+        return self.usernameHue
     
     def getHue(self, co2):
         x = ((((co2-400)/500)*100))
@@ -139,11 +139,11 @@ class NetatmoHue:
                             json = {"hue": self.getHue(co2), "on" : True }
                         )
         resp = response.json()
-        print(resp)
+        #print(resp)
     
     def setLightByPPM(self, station, module, light, sensor = None):
         if sensor is not None:
-            print('Sensor specified')
+            #print('Sensor specified')
             s = self.getSensor(sensor)
             lu =  s['state']['lastupdated']
             d = self.getTimeDiff(lu)
@@ -154,16 +154,18 @@ class NetatmoHue:
                     co2 = self.getCO2(station)
                 for l in light:
                     self.setHue(light=l, co2=co2)
-                    print('light hue set because presence was detected')
+                    #print('light hue set because presence was detected')
         else:
             co2 = self.getCO2(station, module)    
             for l in light:
                     self.setHue(light=l, co2=co2)            
-            print('light hue set without sensor')
+            #print('light hue set without sensor')
     
     def getSensor(self,sensor):
+        un = self.get_usernameHue()
+        #print(un)
         response = requests.get(
-                            url = 'http://' + self.ip + '/api/'+ self.get_usernameHue() + '/sensors/' + str(sensor) 
+                            url = 'http://' + self.ip + '/api/'+ un + '/sensors/' + str(sensor) 
                         )
         resp = response.json()
         return resp 
@@ -176,13 +178,13 @@ class NetatmoHue:
         return d
     
     def start(self):
-        teller = 1
-        while teller < 2:        
+        
+        while 1==1:        
             for settingname, setting in self.settings.items():
-                print(setting['station'])  
+                #print(setting['station'])  
                 self.storeStationsData()  
                 sensor = setting['sensor'] if "sensor" in setting  else None
                 module = setting['module'] if "module" in setting  else None
                 self.setLightByPPM(station=setting['station'], module = module, light=setting['light'], sensor= sensor)
-            time.sleep(10)  
-            teller += 1
+            time.sleep(300)  
+            #teller += 1
