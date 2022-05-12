@@ -25,6 +25,6 @@ setup(
     url='https://github.com/stevedep/Netatmo_PPM_Hue',    
     license='GPL V3',
     description='Package that colours your lights as the PPM in your room change.',
-    long_description_content_type="text/markdown",
-    long_description=README
+    long_description=README,
+    long_description_content_type="text/markdown"    
 )
