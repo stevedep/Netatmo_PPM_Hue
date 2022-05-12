@@ -18,7 +18,7 @@ Install via PIP with:
 
 Use in Python like this:
 
-```python
+``` 
 import pyNetatmoHue as pNH
 
 NH2 = pNH.NetatmoHue(
@@ -38,8 +38,8 @@ NH2 = pNH.NetatmoHue(
 )
 
 NH2.start()
-
-````
+ 
+```` 
 
 #### API Credentials
 
