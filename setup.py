@@ -1,5 +1,7 @@
 # python setup.py --dry-run --verbose install
 
+from distutils.core import setup
+
 # read the contents of your README file
 from pathlib import Path
 this_directory = Path(__file__).parent
