@@ -44,3 +44,20 @@ NH2.start()
 #### API Credentials
 
 Netatmo API credentials can be created via https://dev.netatmo.com/apps/. Register an APP to get a ClientID and Client Secret. 
+
+#### Configuration
+
+When you intitiate a class instance a number of parameter values are required. The following paramters are required to obtain the CO2 levels:
+* _CLIENT_ID
+* _CLIENT_SECRET
+* _USERNAME     
+* _PASSWORD   
+* scope
+* _BASE_URL
+
+You also need to specify the IP adress of your HUE bridge. This is done using the parameter *_IP*. You can find you IP adres by using your HUE app and going to 'Settings' -> 'Hue Bridges' -> 'Information Icon'.
+
+##### Settings 
+The settings parameter consists of a nested dictionary with the rooms that each have a station or optionally also a module to retrevieve the CO2 level. The light(s) that need to be coloured in that room are specified (in a list). Finally, optionally, you can specify a motion sensor that checks for presence in the room. 
+
+To obtain the light and sensor identifiers, I recommend the app 'all 4 hue'. In this app you can select a light or sensor and then choose 'show internal identifier'
