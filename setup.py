@@ -3,8 +3,8 @@
 from distutils.core import setup
 
 
-#with open("README.md", "r", encoding="utf-8") as fh:
-#    long_description = fh.read()
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
 
 
 setup(
@@ -25,6 +25,6 @@ setup(
     url='https://github.com/stevedep/Netatmo_PPM_Hue',    
     license='GPL V3',
     description='Package that colours your lights as the PPM in your room change.',
-    long_description=README,
+    long_description=long_description,
     long_description_content_type="text/markdown"    
 )
