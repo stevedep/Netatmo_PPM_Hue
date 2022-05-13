@@ -79,6 +79,6 @@ The current version of this module works with a number of fixed values:
 > Therefore, purple is good, blue is not so good and green is bad.
 
 ## Contribution
-The TODO.md file contains the todo items / roadmap. We are looking for contributers!
+The TODO.md file contains the todo items / roadmap. We are looking for contributers! Please share your thoughts in the discussion tab.
 
  
