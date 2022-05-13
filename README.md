@@ -36,16 +36,16 @@ NH2 = pNH.NetatmoHue(
         "portaal": {
             "station": "_ (Keuken)",
             "module": "Portaal",
-            "light": [8],
+            "lights": [8],
             "sensor": 16,
         },
         "werkkamer": {
             "station": "_ (Pepijn)",
             "module": "Werkkamer",
-            "light": [6],
+            "lights": [6],
             "sensor": 160,
         },
-        "keuken": {"station": "_ (Keuken)", "light": [3, 4]},
+        "keuken": {"station": "_ (Keuken)", "lights": [3, 4]},
     },
 )
 
