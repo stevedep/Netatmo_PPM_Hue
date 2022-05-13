@@ -12,12 +12,12 @@ class NetatmoHue:
     def __init__(
         self,
         _CLIENT_ID,
-        _CLIENT_SECRET,
-        _USERNAME,
-        _PASSWORD,
+        _CLIENT_SECRET: str,
+        _USERNAME: str,
+        _PASSWORD: str,
         scope,
-        _BASE_URL,
-        _IP,
+        _BASE_URL: str,
+        _IP: str,
         _SETTINGS,
     ):
         self.clientId = _CLIENT_ID
@@ -25,8 +25,8 @@ class NetatmoHue:
         self.username = _USERNAME
         self.password = _PASSWORD
         self._BASE_URL = "https://api.netatmo.com/"
-        self._AUTH_REQ = _BASE_URL + "oauth2/token"
-        self._AUTH_REFREH = _BASE_URL + "oauth2/token"
+        self._AUTH_REQ = f"{_BASE_URL}oauth2/token"
+        self._AUTH_REFREH = f"{_BASE_URL}oauth2/token"
         self.scope = scope
         self.stationsData = ""
         self.usernameHue = ""
@@ -91,7 +91,7 @@ class NetatmoHue:
                     result = dev["dashboard_data"]["CO2"]
         return result
 
-    def connectToBridge(self, ip):
+    def connectToBridge(self, ip: str) -> None:
         response = requests.post(url=f"http://{ip}/api", json={"devicetype": "python"})
         resp = response.json()
 
@@ -114,7 +114,7 @@ class NetatmoHue:
                     if error_type == 7:
                         print("Unknown username")
 
-    def get_usernameHue(self):
+    def get_usernameHue(self) -> str:
         if not self.usernameHue:
             filename = "hue_config.json"
             if exists(filename):
@@ -147,7 +147,7 @@ class NetatmoHue:
         h, s, v = colorsys.rgb_to_hsv(r, g, bl)
         return int(round(h * 65535))
 
-    def setHue(self, light, co2):
+    def setHue(self, light, co2) -> None:
         response = requests.put(
             url=f"http://{self.ip}/api/{self.get_usernameHue()}/lights/{light}/state",
             json={"hue": self.getHue(co2), "on": True},
@@ -155,7 +155,7 @@ class NetatmoHue:
         resp = response.json()  # noqa: F841
         # print(resp)
 
-    def setLightByPPM(self, station, module, lights, sensor=None):
+    def setLightByPPM(self, station, module, lights, sensor=None) -> None:
         if sensor is not None:
             # print('Sensor specified')
             s = self.getSensor(sensor)
@@ -186,7 +186,7 @@ class NetatmoHue:
         yourdate = parser.parse(lu)
         return (now - yourdate).total_seconds() / 60
 
-    def start(self):
+    def start(self) -> None:
         while True:
             for setting in self.settings.values():
                 # print(setting['station'])
