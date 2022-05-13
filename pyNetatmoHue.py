@@ -198,7 +198,7 @@ class NetatmoHue:
                 self.setLightByPPM(
                     station=setting["station"],
                     module=module,
-                    light=setting["light"],
+                    lights=setting["light"],
                     sensor=sensor,
                 )
             time.sleep(300)
