@@ -94,7 +94,8 @@ class NetatmoHue:
                     if 'error' in key:
                         error_type = line['error']['type']
                         if error_type == 101:
-                            print('The link button has not been pressed in the last 30 seconds. Please press link button and wait 10 seconds for this code to retreive the username.')
+                            print('The link button has not been pressed in the last 30 seconds. Please press '
+                                  'link button and wait 10 seconds for this code to retrieve the username.')
                             time.sleep(10)
                         if error_type == 7:
                             print('Unknown username')
