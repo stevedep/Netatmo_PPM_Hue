@@ -18,28 +18,39 @@ Install via PIP with:
 
 Use in Python like this:
 
-``` 
+```python
 import pyNetatmoHue as pNH
 
 NH2 = pNH.NetatmoHue(
-    _CLIENT_ID     = "xx",
-    _CLIENT_SECRET = "xxx",
-    _USERNAME      = "xx.xx@gmail.com",
-    _PASSWORD      = "xx%xx*",
-    scope="read_station read_camera access_camera write_camera " \
-                                 "read_presence access_presence write_presence read_thermostat write_thermostat",
-    _BASE_URL = "https://api.netatmo.com/",
-    _IP = '192.168.2.7',
-    _SETTINGS = {
-    "portaal" : {"station": "_ (Keuken)", "module" : "Portaal", "light":[8], "sensor":16 },
-    "werkkamer" : {"station" : "_ (Pepijn)", "module" : "Werkkamer", "light":[6], "sensor":160 },
-    "keuken" : {"station" : "_ (Keuken)", "light":[3,4] }
-       }
+    _CLIENT_ID="xx",
+    _CLIENT_SECRET="xxx",
+    _USERNAME="xx.xx@gmail.com",
+    _PASSWORD="xx%xx*",
+    scope=(
+        "read_station read_camera access_camera write_camera read_presence "
+        "access_presence write_presence read_thermostat write_thermostat"
+    ),
+    _BASE_URL="https://api.netatmo.com/",
+    _IP="192.168.2.7",
+    _SETTINGS={
+        "portaal": {
+            "station": "_ (Keuken)",
+            "module": "Portaal",
+            "light": [8],
+            "sensor": 16,
+        },
+        "werkkamer": {
+            "station": "_ (Pepijn)",
+            "module": "Werkkamer",
+            "light": [6],
+            "sensor": 160,
+        },
+        "keuken": {"station": "_ (Keuken)", "light": [3, 4]},
+    },
 )
 
 NH2.start()
- 
-```` 
+```
 
 #### API Credentials
 
