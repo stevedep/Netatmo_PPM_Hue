@@ -76,7 +76,7 @@ class NetatmoHue:
             "accept": "application/json",
         }
         self.stationsData = requests.get(endpoint, headers=headers).json()
-        return "Stationsdata retreived"
+        return "Station data retrieved"
 
     def getCO2(self, station, module=None):
         result = "Not Found"
@@ -108,7 +108,7 @@ class NetatmoHue:
                         print(
                             "The link button has not been pressed in the last 30 "
                             "seconds. Please press link button and wait 10 seconds "
-                            "for this code to retreive the username."
+                            "for this code to retrieve the username."
                         )
                         time.sleep(10)
                     if error_type == 7:
