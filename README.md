@@ -4,7 +4,7 @@ This repository contains the module 'pyNetatmoHue.py' (Python code) that allows 
 
 This is usefull when you want to easily monitor the PPM level in your room so you known when you need to ventilate your room (additionally). 
 
-You can speficy a Netatmo Station and Module to measure the PPM level, a Hue light that will colour as the PPM level changes and a motion sensor (optional) that check if anybody is present in the room, if not, that light will not change colour. 
+You can speficy a Netatmo Station and Module to measure the PPM level, a Hue light that will colour as the PPM level changes and a motion sensor (optional) that checks if anybody is present in the room, if not, that light will not change colour. 
 
 #### Target Audience
 This repository is intended for (Python) Developers who would like to use this code, or ideally, would like to contribute.
@@ -60,4 +60,25 @@ You also need to specify the IP adress of your HUE bridge. This is done using th
 ##### Settings 
 The settings parameter consists of a nested dictionary with the rooms that each have a station or optionally also a module to retrevieve the CO2 level. The light(s) that need to be coloured in that room are specified (in a list). Finally, optionally, you can specify a motion sensor that checks for presence in the room. 
 
-To obtain the light and sensor identifiers, I recommend the app 'all 4 hue'. In this app you can select a light or sensor and then choose 'show internal identifier'
+To obtain the light and sensor identifiers, I recommend the app 'all 4 hue'. In this app you can select a light or sensor and then choose 'show internal identifier'.
+
+## Initial use
+When you start instance the first time, using instance_name.start(), you will be prompted to push the button on your bridge. Every 10 seconds a retry is attempted to connect to the bridge. So within 10 seconds after pushing the button a connection is attempted. 
+When you push the button on the bridge a username is released by the bridge. This username is stored in a json file. 
+
+        
+## Defaults        
+The current version of this module works with a number of fixed values:
+
+> The function getHue assumes a range PPM range of 400 - 900.
+>  
+> The function getHue sets the colour by changing the amount of red for PPM values of 400 to 800.
+> 
+> The function getHue sets the colour by changing the amount of green and blue for PPM values of 800 to 900.
+> 
+> Therefore, purple is good, blue is not so good and green is bad.
+
+## Contribution
+The TODO.md file contains the todo items / roadmap. We are looking for contributers!
+
+ 
