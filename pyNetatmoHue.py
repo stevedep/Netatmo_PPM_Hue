@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import colorsys
 import json
 import time
@@ -11,14 +13,14 @@ from dateutil import parser
 class NetatmoHue:
     def __init__(
         self,
-        _CLIENT_ID,
+        _CLIENT_ID: str,
         _CLIENT_SECRET: str,
         _USERNAME: str,
         _PASSWORD: str,
-        scope,
+        scope: str,
         _BASE_URL: str,
         _IP: str,
-        _SETTINGS,
+        _SETTINGS: dict,
     ):
         self.clientId = _CLIENT_ID
         self.clientSecret = _CLIENT_SECRET
