@@ -10,7 +10,7 @@ The following functions are part of the module:
 
 > **acessToken**: Refreshes the Netatmo token when its expired, else it used the already stored token. 
 
-> **storeStationsData**: retreives and stores the Station data in a instance attribute. 
+> **storeStationsData**: retreives and stores the Station data in an instance attribute. 
 
 > **getCO2**: retreives the CO2 / PPM level for a given station (and module) by using the data that was retreived and stored by *storeStationsData*.
 
