@@ -24,6 +24,10 @@ The following functions are part of the module:
 
 > **setLightByPPM**: For a given configuration (combination of station/module, light and sensor), sets the Hue level for light by PPM level, in case motion has been deteced in the last 15 minutes.  
 
+> **getSensor**: Returns the sensor readings. 
 
+> **getTimeDiff**: Returns the time difference in minutes from the provided datetime and now. 
+
+> **start**: Infinite loop that sets the lights every 5 minutes by using the provided configurations (settings).  
 
 
