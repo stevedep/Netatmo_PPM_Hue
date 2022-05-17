@@ -9,6 +9,9 @@ You can specify a Netatmo Station and Module to measure the PPM level, a Hue lig
 #### Target Audience
 This repository is intended for (Python) Developers who would like to use this code, or ideally, would like to contribute.
 
+### References
+A slightly more elaborate description of this solution is also available on Medium:
+https://medium.com/@steve.depeijper/easy-at-a-glance-awareness-of-room-ventilation-levels-b8fa1e63ff1a
 
 ## Installation
 
